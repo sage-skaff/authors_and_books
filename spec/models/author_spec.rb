@@ -7,4 +7,8 @@ RSpec.describe Author, type: :model do
     it { should allow_value(true).for(:living) }
     it { should allow_value(false).for(:living) }
   end
+
+  describe 'relationships' do
+    it { should have_many :books }
+  end
 end

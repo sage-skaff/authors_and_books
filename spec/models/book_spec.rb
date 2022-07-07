@@ -7,4 +7,8 @@ RSpec.describe Book, type: :model do
     it { should allow_value(true).for(:series) }
     it { should allow_value(false).for(:series) }
   end
+
+  describe 'relationships' do
+    it { should belong_to :author }
+  end
 end
