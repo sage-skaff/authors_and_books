@@ -11,22 +11,22 @@ RSpec.describe 'Books Index Page' do
     within '#index-0' do
       expect(page).to have_content('The Hobbit')
       expect(page).to have_content('310')
-      expect(page).to have_content('Single')
+      expect(page).to have_content('Series: false')
       expect(page).to have_content('J.R.R. Tolkien')
       expect(page).to_not have_content('Dune')
       expect(page).to_not have_content('412')
-      expect(page).to_not have_content('Series')
+      expect(page).to_not have_content('Series: true')
       expect(page).to_not have_content('Frank Herbert')
     end
 
     within '#index-1' do
       expect(page).to have_content('Dune')
       expect(page).to have_content('412')
-      expect(page).to have_content('Series')
+      expect(page).to have_content('Series: true')
       expect(page).to have_content('Frank Herbert')
       expect(page).to_not have_content('The Hobbit')
       expect(page).to_not have_content('310')
-      expect(page).to_not have_content('Single')
+      expect(page).to_not have_content('Series: false')
       expect(page).to_not have_content('J.R.R. Tolkien')
     end
   end

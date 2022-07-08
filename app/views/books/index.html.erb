@@ -1,0 +1,10 @@
+<h1>Books</h1>
+<% @books.each_with_index do |book, index| %>
+  <div id="index-<%= index %>">
+    <b><%= book.title %></b>
+    <p>Pages: <%= book.pages %></p>
+    <p>Series: <%= book.series %></p>
+    <p>Author: <%= book.author.name %></p>
+  </div>
+<% end %>
+
