@@ -8,6 +8,8 @@ RSpec.describe 'Books Show Page' do
     book2 = Book.create!(title: 'Dune', pages: 412, series: true, author_id: author2.id)
 
     visit "/books/#{book.id}"
+    expect(current_path).to eq("/books/#{book.id}")
+
     expect(page).to have_content('The Hobbit')
     expect(page).to have_content('310')
     expect(page).to have_content('Series: false')
