@@ -1,4 +1,6 @@
 <h1>Authors</h1>
-<% @authors.each do |author| %>
-  <%= author.name %>
+<% @authors.most_recently_created.each_with_index do |author, index| %>
+  <div id="index-<%= index %>">
+    <p><%= author.name %>, Created At: <%= author.created_at %></p>
+    </div>
 <% end %>
