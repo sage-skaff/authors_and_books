@@ -13,4 +13,20 @@ RSpec.describe 'Authors Show Page' do
     expect(page).to_not have_content('72')
     expect(page).to_not have_content('Deceased')
   end
+
+  it 'lists books count' do
+    author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+    author2 = Author.create!(name: 'Frank Herbert', age: 65, living: true)
+    author3 = Author.create!(name: 'Isaac Asimov', age: 72, living: false)
+
+    book = Book.create!(title: 'The Hobbit', pages: 310, series: false, author_id: author.id)
+    book2 = Book.create!(title: 'Dune', pages: 412, series: true, author_id: author2.id)
+    book3 = Book.create!(title: 'The Fellowship of the Ring', pages: 423, series: true, author_id: author.id)
+
+    visit "/authors/#{author.id}"
+    expect(page).to have_content('Number of Books: 2')
+
+    visit "/authors/#{author2.id}"
+    expect(page).to have_content('Number of Books: 1')
+  end
 end
