@@ -6,4 +6,8 @@ class Author < ApplicationRecord
   def self.most_recently_created
     order(created_at: :desc)
   end
+
+  def books_count
+    books.count
+  end
 end
