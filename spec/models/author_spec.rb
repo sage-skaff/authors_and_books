@@ -18,7 +18,7 @@ RSpec.describe Author, type: :model do
       author2 = Author.create!(name: 'Frank Herbert', age: 65, living: true)
       author3 = Author.create!(name: 'Isaac Asimov', age: 72, living: false)
 
-      expect(Author.most_recently_created).to eq([author, author2, author3])
+      expect(Author.most_recently_created).to eq([author3, author2, author])
     end
   end
 end
