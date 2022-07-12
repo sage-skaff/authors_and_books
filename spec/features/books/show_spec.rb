@@ -19,4 +19,14 @@ RSpec.describe 'Books Show Page' do
     expect(page).to_not have_content('Series: true')
     expect(page).to_not have_content('Frank Herbert')
   end
+
+  it 'has links for authors index and books index' do
+    author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+    book = Book.create!(title: 'The Hobbit', pages: 310, series: false, author_id: author.id)
+
+    visit "/books/#{book.id}"
+
+    expect(page).to have_link('Authors Index')
+    expect(page).to have_link('Books Index')
+  end
 end

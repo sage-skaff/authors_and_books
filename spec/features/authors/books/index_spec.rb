@@ -32,4 +32,13 @@ RSpec.describe 'Author Books Index Page', type: :feature do
       expect(page).to_not have_content('Series: false')
     end
   end
+
+  it 'has links for authors index and books index' do
+    author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+
+    visit "/authors/#{author.id}/books"
+
+    expect(page).to have_link('Authors Index')
+    expect(page).to have_link('Books Index')
+  end
 end

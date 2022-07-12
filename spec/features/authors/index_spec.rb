@@ -34,4 +34,11 @@ RSpec.describe 'Authors Index Page' do
       expect(page).to_not have_content('Isaac Asimov')
     end
   end
+
+  it 'has links for authors index and books index' do
+    visit '/authors'
+
+    expect(page).to have_link('Authors Index')
+    expect(page).to have_link('Books Index')
+  end
 end
