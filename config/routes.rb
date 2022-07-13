@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/authors/:id', to: 'authors#show'
 
   get '/books', to: 'books#index'
+  get '/books/:id/edit', to: 'books#edit'
+  patch '/books/:id', to: 'books#update'
   get '/books/:id', to: 'books#show'
 
   get '/authors/:id/books', to: 'author_books#index'
