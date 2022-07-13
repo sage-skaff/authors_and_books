@@ -1,0 +1,10 @@
+
+<%= form_with url: path, method: method do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+  <%= form.label :living %>
+  <%= form.text_field :living %>
+  <%= form.submit button_text %>
+<% end %>
