@@ -41,4 +41,23 @@ RSpec.describe 'Authors Index Page' do
     expect(page).to have_link('Authors Index')
     expect(page).to have_link('Books Index')
   end
+
+  it 'links to update authors' do
+    author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+    author2 = Author.create!(name: 'Frank Herbert', age: 65, living: true)
+    author3 = Author.create!(name: 'Isaac Asimov', age: 72, living: false)
+
+    visit '/authors'
+    within '#index-0' do
+      expect(page).to have_link('Update Author')
+    end
+
+    within '#index-1' do
+      expect(page).to have_link('Update Author')
+    end
+
+    within '#index-2' do
+      expect(page).to have_link('Update Author')
+    end
+  end
 end
