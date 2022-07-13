@@ -29,4 +29,16 @@ RSpec.describe 'Books Show Page' do
     expect(page).to have_link('Authors Index')
     expect(page).to have_link('Books Index')
   end
+
+  it 'has link to delete book' do
+    author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+    book = Book.create!(title: 'The Hobbit', pages: 310, series: false, author_id: author.id)
+
+    visit "/books/#{book.id}"
+
+    expect(page).to have_link('Delete Book')
+    click_link 'Delete Book'
+    expect(current_path).to eq('/books')
+    expect(page).to_not have_content('The Hobbit')
+  end
 end
