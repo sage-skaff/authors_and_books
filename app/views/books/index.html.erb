@@ -6,6 +6,7 @@
     <p>Series: <%= book.series %></p>
     <p>Author: <%= book.author.name %></p>
 <%= link_to 'Update Book', "/books/#{book.id}/edit" %>
+<%= link_to 'Delete Book', "/books/#{book.id}", method: :delete %>
   </div>
 <% end %>
 
