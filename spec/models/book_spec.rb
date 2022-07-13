@@ -22,5 +22,15 @@ RSpec.describe Book, type: :model do
 
       expect(Book.all_series).to eq([book2, book3])
     end
+
+    it 'can list books alphabetically' do
+      author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+      author2 = Author.create!(name: 'Frank Herbert', age: 65, living: true)
+      book = Book.create!(title: 'The Hobbit', pages: 310, series: false, author_id: author.id)
+      book2 = Book.create!(title: 'Dune', pages: 412, series: true, author_id: author2.id)
+      book3 = Book.create!(title: 'The Fellowship of the Ring', pages: 423, series: true, author_id: author.id)
+
+      expect(Book.alphabetize).to eq([book2, book3, book])
+    end
   end
 end
