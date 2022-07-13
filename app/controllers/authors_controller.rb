@@ -30,6 +30,11 @@ class AuthorsController < ApplicationController
     redirect_to "/authors/#{author.id}"
   end
 
+  def destroy
+    author = Author.find(params[:id])
+    author.destroy
+    redirect_to '/authors'
+  end
   # def author_params
   #   params.require(:author).permit(:name, :age, :living)
   # end

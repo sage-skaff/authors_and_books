@@ -53,7 +53,6 @@ RSpec.describe 'Authors Show Page' do
 
   it 'has link to delete author' do
     author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
-    book = Book.create!(title: 'The Hobbit', pages: 310, series: false, author_id: author.id)
 
     visit "/authors/#{author.id}"
 
