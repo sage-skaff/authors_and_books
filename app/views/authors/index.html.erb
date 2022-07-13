@@ -3,6 +3,7 @@
 <% @authors.each_with_index do |author, index| %>
   <div id="index-<%= index %>">
     <p><%= author.name %>, Created At: <%= author.created_at %> 
+<%= link_to 'Delete Author', "/authors/#{author.id}", method: :delete %> 
   <%= link_to 'Update Author', "/authors/#{author.id}/edit" %></p>
     </div>
 <% end %>
