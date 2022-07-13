@@ -4,6 +4,6 @@ class Book < ApplicationRecord
   belongs_to :author
 
   def self.all_series
-    all.where(series: true)
+    where(series: true)
   end
 end
