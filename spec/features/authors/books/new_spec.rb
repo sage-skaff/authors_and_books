@@ -13,9 +13,9 @@ RSpec.describe 'New Authors Books Page' do
     author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
     visit "/authors/#{author.id}/books/new"
 
-    fill_in(title: 'The Hobbit')
-    fill_in(pages: '310')
-    fill_in(series: 'false')
+    fill_in('Title', with: 'The Hobbit')
+    fill_in('Pages', with: '310')
+    fill_in('Series', with: 'false')
     click_button 'Create Book'
 
     expect(current_path).to eq("/authors/#{author.id}/books")
