@@ -6,4 +6,8 @@ class Book < ApplicationRecord
   def self.all_series
     where(series: true)
   end
+
+  def self.alphabetize
+    order(:title)
+  end
 end
