@@ -60,4 +60,25 @@ RSpec.describe 'Authors Index Page' do
       expect(page).to have_link('Update Author')
     end
   end
+
+  it 'links to delete authors' do
+    author = Author.create!(name: 'J.R.R. Tolkien', age: 81, living: false)
+    author2 = Author.create!(name: 'Frank Herbert', age: 65, living: true)
+    author3 = Author.create!(name: 'Isaac Asimov', age: 72, living: false)
+
+    visit '/authors'
+    within '#index-0' do
+      expect(page).to have_link('Delete Author')
+    end
+
+    within '#index-1' do
+      expect(page).to have_link('Delete Author')
+    end
+
+    within '#index-2' do
+      expect(page).to have_link('Delete Author')
+      click_link 'Delete Author'
+    end
+    expect(page).to_not have_content('J.R.R Tolkien')
+  end
 end
